@@ -565,11 +565,16 @@
   if (namaTamu) {
     const kepadaDiv = document.getElementById('kepada');
     kepadaDiv.innerHTML = `
-      <p style="font-size: 16px; margin-bottom: 0;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-      <h3 style="margin-top: 5px;">${decodeURIComponent(namaTamu)}</h3>
+      <p style="font-size: 16px; margin-bottom: 0; color: white;">
+        Kepada Yth. Bapak/Ibu/Saudara/i
+      </p>
+      <h3 style="margin-top: 5px; color: white;">
+        ${decodeURIComponent(namaTamu)}
+      </h3>
     `;
   }
 </script>
+
 
 	<!--<script>
     var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
