@@ -575,7 +575,7 @@
 </script>-->
 <script>
   // Ambil tanggal dari bagian Akad
-  const tanggalEl = document.querySelectorAll('#acara-spesial .event-col')[1];
+  const tanggalEl = document.querySelector('#acara-spesial .event-wrap .event-col.text-center');
   const spans = tanggalEl.querySelectorAll('span');
 
   const tanggalStr = spans[1].innerText.trim(); // "15 Juni 2025"
@@ -609,9 +609,6 @@
     enableUtc: false
   });
 </script>
-
-
-
 	</body>
 </html>
 
