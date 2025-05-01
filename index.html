@@ -71,7 +71,7 @@
 	<div class="fh5co-loader"></div>
 
 	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
+	<!--<nav class="fh5co-nav" role="navigation">
 		<div class="container">
 			<div class="row">
 				<!--<div class="col-xs-2">
@@ -105,7 +105,7 @@
 			</div>
 			
 		</div>
-	</nav>
+	</nav>-->
 
 	<header header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/gallery-3.jpeg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
@@ -120,14 +120,16 @@
 							  <!-- Nama tamu akan muncul di sini -->
 							</div>
 							<!--<div class="simply-countdown simply-countdown-one"></div>-->
-							<p><a href="#acara-spesial" class="btn btn-default btn-sm">Buka Undangan</a></p>
+							<p><a href="#" onclick="bukaUndangan()" class="btn btn-default btn-sm">Buka Undangan</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
-
+<!-- Konten utama undangan -->
+<div id="undangan-main" style="display: none;">
+  <!-- ...semua isi di bawah header dimasukkan ke sini... -->
 	<div id="fh5co-couple">
 		<div class="container">
 			<div class="row">
@@ -529,10 +531,11 @@
 		</div>
 	</footer>
 	</div>
-
+</div>
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
+	
 	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
@@ -618,6 +621,29 @@
     month: d.getMonth()+1,
     day:   d.getDate()
   });
+</script>
+<script>
+  function bukaUndangan() {
+    // Sembunyikan header
+    document.getElementById('fh5co-header').style.display = 'none';
+
+    // Tampilkan konten utama
+    document.getElementById('undangan-main').style.display = 'block';
+
+    // Scroll ke atas
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Menampilkan nama tamu di header
+  const params = new URLSearchParams(window.location.search);
+  const namaTamu = params.get('to');
+  if (namaTamu) {
+    const kepadaDiv = document.getElementById('kepada');
+    kepadaDiv.innerHTML = `
+      <p style="font-size: 16px; margin-bottom: 0; color: white;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+      <h3 style="margin-top: 5px; color: white;">${decodeURIComponent(namaTamu)}</h3>
+    `;
+  }
 </script>
 
 	</body>
