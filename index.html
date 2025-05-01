@@ -555,7 +555,7 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	<script>
+	<!--<script>
     var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
 
     // default example
@@ -572,7 +572,43 @@
         year: d.getFullYear(),
         enableUtc: false
     });
+</script>-->
+<script>
+  // Ambil tanggal dari elemen event "Akad Nikah"
+  const tanggalEl = document.querySelector('#acara-spesial .event-col.text-center');
+  const spanTanggal = tanggalEl.querySelectorAll('span');
+
+  const hariTeks = spanTanggal[0].innerText; // "Minggu 15"
+  const bulanTahunTeks = spanTanggal[1].innerText; // "Juni, 2025"
+
+  const tanggal = parseInt(hariTeks.match(/\d+/)[0]);
+  const [bulanNama, tahunStr] = bulanTahunTeks.split(',').map(s => s.trim());
+  const tahun = parseInt(tahunStr);
+
+  const bulanMap = {
+    "Januari": 0, "Februari": 1, "Maret": 2, "April": 3, "Mei": 4,
+    "Juni": 5, "Juli": 6, "Agustus": 7, "September": 8,
+    "Oktober": 9, "November": 10, "Desember": 11
+  };
+
+  const bulan = bulanMap[bulanNama];
+  const targetDate = new Date(tahun, bulan, tanggal);
+
+  // Jalankan countdown
+  simplyCountdown('.simply-countdown-one', {
+    year: targetDate.getFullYear(),
+    month: targetDate.getMonth() + 1,
+    day: targetDate.getDate()
+  });
+
+  $('#simply-countdown-losange').simplyCountdown({
+    year: targetDate.getFullYear(),
+    month: targetDate.getMonth() + 1,
+    day: targetDate.getDate(),
+    enableUtc: false
+  });
 </script>
+
 
 	</body>
 </html>
