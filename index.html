@@ -556,39 +556,22 @@
 	<script src="js/main.js"></script>
 
 	<script>
-    <!-- simplyCountdown.js sudah di-load di atas -->
-  // ambil elemen tanggal akad yang sudah kamu beri id="tanggal-akad"
-  const tanggalElemen = document.getElementById("tanggal-akad");
-  const spans = tanggalElemen.getElementsByTagName("span");
+    var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
 
-  const hariText    = spans[0].innerText;         // "Minggu 15"
-  const tanggalText = spans[1].innerText;         // "Juni, 2025"
+    // default example
+    simplyCountdown('.simply-countdown-one', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate()
+    });
 
-  const tanggal = parseInt(hariText.match(/\d+/)[0]);             // 15
-  const [bulanNama, th] = tanggalText.split(",").map(s => s.trim());
-  const tahun   = parseInt(th);
-
-  const bulanMap = {
-    "Januari": 0, "Februari": 1, "Maret": 2, "April": 3, "Mei": 4,
-    "Juni": 5, "Juli": 6, "Agustus": 7, "September": 8,
-    "Oktober": 9, "November": 10, "Desember": 11
-  };
-  const bulan = bulanMap[bulanNama];
-
-  const d = new Date(tahun, bulan, tanggal);
-
-  simplyCountdown('.simply-countdown-one', {
-    year:  d.getFullYear(),
-    month: d.getMonth() + 1,
-    day:   d.getDate()
-  });
-
-  $('#simply-countdown-losange').simplyCountdown({
-    year:  d.getFullYear(),
-    month: d.getMonth() + 1,
-    day:   d.getDate(),
-    enableUtc: false
-  });
+    //jQuery example
+    $('#simply-countdown-losange').simplyCountdown({
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        enableUtc: false
+    });
 </script>
 
 	</body>
