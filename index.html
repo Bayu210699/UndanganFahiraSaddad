@@ -574,48 +574,29 @@
     });
 </script>-->
 <script>
-  // Ambil tanggal dari bagian Akad Nikah
+  // Ambil elemen tanggal acara (span kedua berisi "15 Juni 2025")
   const tanggalEl = document.querySelector('#acara-spesial .col-md-6 .event-col.text-center');
-  if (tanggalEl) {
-    const spans = tanggalEl.querySelectorAll('span');
-    if (spans.length >= 2) {
-      const tanggalStr = spans[1].innerText.trim(); // contoh: "15 Juni 2025"
-      const [tgl, bulanNama, tahunStr] = tanggalStr.split(" ");
-      const tanggal = parseInt(tgl);
-      const tahun = parseInt(tahunStr);
+  const spans     = tanggalEl.querySelectorAll('span');
+  const [tgl, bulanNama, th] = spans[1].innerText.trim().split(' ');
+  const tanggal   = parseInt(tgl, 10);
+  const tahun     = parseInt(th, 10);
 
-      const bulanMap = {
-        "januari": 0, "februari": 1, "maret": 2, "april": 3, "mei": 4,
-        "juni": 5, "juli": 6, "agustus": 7, "september": 8,
-        "oktober": 9, "november": 10, "desember": 11
-      };
+  const bulanMap = {
+    januari:0, februari:1, maret:2, april:3, mei:4,
+    juni:5, juli:6, agustus:7, september:8,
+    oktober:9, november:10, desember:11
+  };
+  const bulan = bulanMap[ bulanNama.toLowerCase() ];
 
-      const bulan = bulanMap[bulanNama.toLowerCase()];
+  // Buat objek Date target
+  const d = new Date(tahun, bulan, tanggal);
 
-      if (!isNaN(tanggal) && !isNaN(bulan) && !isNaN(tahun)) {
-        const d = new Date(tahun, bulan, tanggal);
-
-        simplyCountdown('.simply-countdown-one', {
-          year: d.getFullYear(),
-          month: d.getMonth() + 1,
-          day: d.getDate()
-        });
-
-        $('#simply-countdown-losange').simplyCountdown({
-          year: d.getFullYear(),
-          month: d.getMonth() + 1,
-          day: d.getDate(),
-          enableUtc: false
-        });
-      } else {
-        console.warn('Tanggal tidak valid:', tanggal, bulan, tahun);
-      }
-    } else {
-      console.warn('Element <span> kurang dari 2');
-    }
-  } else {
-    console.warn('Element tanggalEl tidak ditemukan');
-  }
+  // Jalankan countdown sekali saja
+  simplyCountdown('.simply-countdown-one', {
+    year:  d.getFullYear(),
+    month: d.getMonth()+1,
+    day:   d.getDate()
+  });
 </script>
 
 	</body>
