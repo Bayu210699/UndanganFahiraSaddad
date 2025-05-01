@@ -120,7 +120,7 @@
 							  <!-- Nama tamu akan muncul di sini -->
 							</div>
 							<!--<div class="simply-countdown simply-countdown-one"></div>-->
-							<p><a href="#" onclick="bukaUndangan()" class="btn btn-default btn-sm">Buka Undangan</a></p>
+							<p><button onclick="bukaUndangan()" class="btn btn-default btn-sm">Buka Undangan</button></p>
 						</div>
 					</div>
 				</div>
@@ -136,7 +136,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<img src="images/bismillah.png" alt="Bismillah" style="max-width: 300px; margin-bottom: 30px;">
 					<h3>Dengan memohon rahmat Allah SWT</h3>
-					<p>kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri resepsi pernikahan kami.</p>
+					<p>Kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri resepsi pernikahan kami.</p>
 				</div>
 			</div>
 			<div class="couple-wrap animate-box">
@@ -624,17 +624,11 @@
 </script>
 <script>
   function bukaUndangan() {
-    // Sembunyikan header
     document.getElementById('fh5co-header').style.display = 'none';
-
-    // Tampilkan konten utama
     document.getElementById('undangan-main').style.display = 'block';
-
-    // Scroll ke atas
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Menampilkan nama tamu di header
   const params = new URLSearchParams(window.location.search);
   const namaTamu = params.get('to');
   if (namaTamu) {
@@ -645,6 +639,7 @@
     `;
   }
 </script>
+
 
 	</body>
 </html>
