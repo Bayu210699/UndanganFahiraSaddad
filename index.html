@@ -574,40 +574,42 @@
     });
 </script>-->
 <script>
-  // Ambil tanggal dari elemen event "Akad Nikah"
-  const tanggalEl = document.querySelector('#acara-spesial .event-col.text-center');
-  const spanTanggal = tanggalEl.querySelectorAll('span');
+  // Ambil tanggal dari bagian Akad
+  const tanggalEl = document.querySelectorAll('#acara-spesial .event-col')[1];
+  const spans = tanggalEl.querySelectorAll('span');
 
-  const hariTeks = spanTanggal[0].innerText; // "Minggu,"
-  const bulanTahunTeks = spanTanggal[1].innerText; // "15 Juni 2025"
+  const tanggalStr = spans[1].innerText.trim(); // "15 Juni 2025"
 
-  const tanggal = parseInt(hariTeks.match(/\d+/)[0]);
-  const [bulanNama, tahunStr] = bulanTahunTeks.split(',').map(s => s.trim());
+  // Pisahkan menjadi [15, Juni, 2025]
+  const [tgl, bulanNama, tahunStr] = tanggalStr.split(" ");
+  const tanggal = parseInt(tgl);
   const tahun = parseInt(tahunStr);
 
   const bulanMap = {
-    "Januari": 0, "Februari": 1, "Maret": 2, "April": 3, "Mei": 4,
-    "Juni": 5, "Juli": 6, "Agustus": 7, "September": 8,
-    "Oktober": 9, "November": 10, "Desember": 11
+    "januari": 0, "februari": 1, "maret": 2, "april": 3, "mei": 4,
+    "juni": 5, "juli": 6, "agustus": 7, "september": 8,
+    "oktober": 9, "november": 10, "desember": 11
   };
 
-  const bulan = bulanMap[bulanNama];
-  const targetDate = new Date(tahun, bulan, tanggal);
+  const bulan = bulanMap[bulanNama.toLowerCase()];
 
-  // Jalankan countdown
+  // Buat tanggal target
+  const d = new Date(tahun, bulan, tanggal);
+
   simplyCountdown('.simply-countdown-one', {
-    year: targetDate.getFullYear(),
-    month: targetDate.getMonth() + 1,
-    day: targetDate.getDate()
+    year: d.getFullYear(),
+    month: d.getMonth() + 1,
+    day: d.getDate()
   });
 
   $('#simply-countdown-losange').simplyCountdown({
-    year: targetDate.getFullYear(),
-    month: targetDate.getMonth() + 1,
-    day: targetDate.getDate(),
+    year: d.getFullYear(),
+    month: d.getMonth() + 1,
+    day: d.getDate(),
     enableUtc: false
   });
 </script>
+
 
 
 	</body>
