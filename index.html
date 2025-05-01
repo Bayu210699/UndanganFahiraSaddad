@@ -574,41 +574,50 @@
     });
 </script>-->
 <script>
-  // Ambil tanggal dari bagian Akad
-  const tanggalEl = document.querySelector('#acara-spesial .event-wrap .event-col.text-center');
-  const spans = tanggalEl.querySelectorAll('span');
+  // Ambil tanggal dari bagian Akad Nikah
+  const tanggalEl = document.querySelector('#acara-spesial .col-md-6 .event-col.text-center');
+  if (tanggalEl) {
+    const spans = tanggalEl.querySelectorAll('span');
+    if (spans.length >= 2) {
+      const tanggalStr = spans[1].innerText.trim(); // contoh: "15 Juni 2025"
+      const [tgl, bulanNama, tahunStr] = tanggalStr.split(" ");
+      const tanggal = parseInt(tgl);
+      const tahun = parseInt(tahunStr);
 
-  const tanggalStr = spans[1].innerText.trim(); // "15 Juni 2025"
+      const bulanMap = {
+        "januari": 0, "februari": 1, "maret": 2, "april": 3, "mei": 4,
+        "juni": 5, "juli": 6, "agustus": 7, "september": 8,
+        "oktober": 9, "november": 10, "desember": 11
+      };
 
-  // Pisahkan menjadi [15, Juni, 2025]
-  const [tgl, bulanNama, tahunStr] = tanggalStr.split(" ");
-  const tanggal = parseInt(tgl);
-  const tahun = parseInt(tahunStr);
+      const bulan = bulanMap[bulanNama.toLowerCase()];
 
-  const bulanMap = {
-    "januari": 0, "februari": 1, "maret": 2, "april": 3, "mei": 4,
-    "juni": 5, "juli": 6, "agustus": 7, "september": 8,
-    "oktober": 9, "november": 10, "desember": 11
-  };
+      if (!isNaN(tanggal) && !isNaN(bulan) && !isNaN(tahun)) {
+        const d = new Date(tahun, bulan, tanggal);
 
-  const bulan = bulanMap[bulanNama.toLowerCase()];
+        simplyCountdown('.simply-countdown-one', {
+          year: d.getFullYear(),
+          month: d.getMonth() + 1,
+          day: d.getDate()
+        });
 
-  // Buat tanggal target
-  const d = new Date(tahun, bulan, tanggal);
-
-  simplyCountdown('.simply-countdown-one', {
-    year: d.getFullYear(),
-    month: d.getMonth() + 1,
-    day: d.getDate()
-  });
-
-  $('#simply-countdown-losange').simplyCountdown({
-    year: d.getFullYear(),
-    month: d.getMonth() + 1,
-    day: d.getDate(),
-    enableUtc: false
-  });
+        $('#simply-countdown-losange').simplyCountdown({
+          year: d.getFullYear(),
+          month: d.getMonth() + 1,
+          day: d.getDate(),
+          enableUtc: false
+        });
+      } else {
+        console.warn('Tanggal tidak valid:', tanggal, bulan, tahun);
+      }
+    } else {
+      console.warn('Element <span> kurang dari 2');
+    }
+  } else {
+    console.warn('Element tanggalEl tidak ditemukan');
+  }
 </script>
+
 	</body>
 </html>
 
