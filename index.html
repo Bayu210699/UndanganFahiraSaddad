@@ -629,7 +629,6 @@
     day:   d.getDate()
   });
 </script>
-<!-- Script Buka Undangan -->
 <script>
   function bukaUndangan() {
     document.getElementById('fh5co-header').style.display = 'none';
@@ -637,15 +636,18 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  const params = new URLSearchParams(window.location.search);
-  const namaTamu = params.get('to');
+  // Tampilkan nama tamu dari URL
+  document.addEventListener('DOMContentLoaded', function () {
+    const params = new URLSearchParams(window.location.search);
+    const namaTamu = params.get('to');
 
-  if (namaTamu) {
-    document.getElementById('kepada').innerHTML = `
-      <p style="color:white; margin-bottom:0;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-      <h3 style="color:white; margin-top:5px;">${decodeURIComponent(namaTamu)}</h3>
-    `;
-  }
+    if (namaTamu) {
+      document.getElementById('kepada').innerHTML = `
+        <p style="color:white; margin-bottom:0;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+        <h3 style="color:white; margin-top:5px;">${decodeURIComponent(namaTamu.replaceAll('+', ' '))}</h3>
+      `;
+    }
+  });
 </script>
 
 	</body>
