@@ -647,21 +647,17 @@
     day:   d.getDate()
   });
 </script>
+<!-- Script Buka Undangan -->
 <script>
   function bukaUndangan() {
-    // Sembunyikan header
     document.getElementById('fh5co-header').style.display = 'none';
-
-    // Tampilkan konten utama
     document.getElementById('undangan-main').style.display = 'block';
-
-    // Scroll ke atas
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Menampilkan nama tamu jika ada ?to=… dalam URL
   const params = new URLSearchParams(window.location.search);
   const namaTamu = params.get('to');
+
   if (namaTamu) {
     document.getElementById('kepada').innerHTML = `
       <p style="color:white; margin-bottom:0;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
@@ -669,6 +665,7 @@
     `;
   }
 </script>
+
 
 	</body>
 </html>
