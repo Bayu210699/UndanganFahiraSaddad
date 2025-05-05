@@ -1862,3 +1862,35 @@ button:hover, .btn:hover {
   padding: 1rem;
   border-radius: 10px;
 }
+#event-schedule {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#event-schedule .fh5co-heading h2 {
+    color: #F14E95;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+#event-schedule .event-wrap {
+    margin-top: 20px;
+}
+
+#event-schedule .event-wrap ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#event-schedule .event-wrap li {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#event-schedule .event-wrap li strong {
+    color: #F14E95;
+}
