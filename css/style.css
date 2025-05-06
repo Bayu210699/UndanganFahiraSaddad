@@ -357,7 +357,12 @@ h1, h2, h3, h4, h5, h6, figure {
   vertical-align: top;
   padding-top: 300px; /* Atur sesuai seberapa turun yang lo mau */
 }
-
+.fh5co-cover .display-tc h1,
+.fh5co-cover .display-tc h2,
+.fh5co-cover .display-tc p {
+  color: #FFD700; /* Warna emas */
+}
+  
 @media screen and (max-width: 768px) {
   .fh5co-cover .display-tc {
     padding-top: 150px;
