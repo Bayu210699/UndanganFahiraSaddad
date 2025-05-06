@@ -355,12 +355,12 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-cover .display-tc {
   display: table-cell;
   vertical-align: top;
-  padding-top: 150px; /* Atur sesuai seberapa turun yang lo mau */
+  padding-top: 300px; /* Atur sesuai seberapa turun yang lo mau */
 }
 
 @media screen and (max-width: 768px) {
   .fh5co-cover .display-tc {
-    padding-top: 80px;
+    padding-top: 150px;
   }
 }
 
