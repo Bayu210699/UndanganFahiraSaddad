@@ -590,6 +590,15 @@
 					</form>
 				</div>
 			</div>
+			 <!-- Daftar Hadir -->
+			    <div class="row animate-box" style="margin-top:30px;">
+			      <div class="col-md-8 col-md-offset-2 text-center">
+			        <h3 style="color: #fff8e1;">Yang Telah Hadir</h3>
+			        <ul id="attendance-list" style="color: #fff8e1; list-style-type: none; padding: 0;"></ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 		</div>
 	</div>
 
@@ -708,6 +717,22 @@
     }
   });
 </script>
+		<script>
+  document.getElementById("attendance-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    if (name !== "" && email !== "") {
+      const list = document.getElementById("attendance-list");
+      const li = document.createElement("li");
+      li.textContent = name;
+      list.appendChild(li);
+      document.getElementById("attendance-form").reset();
+    }
+  });
+</script>
+
 
 	</body>
 </html>
