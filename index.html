@@ -726,8 +726,8 @@
       `;
     }
   });
-</script>
-		<script>
+
+<script>
   document.getElementById("attendance-form").addEventListener("submit", function(e) {
     e.preventDefault();
     const name = document.getElementById("name").value.trim();
@@ -738,11 +738,15 @@
       const li = document.createElement("li");
       li.textContent = name;
       list.appendChild(li);
+
+      // Tampilkan bagian hasil
+      document.getElementById("result-section").style.display = "block";
+
+      // Reset form
       document.getElementById("attendance-form").reset();
     }
   });
 </script>
-
 
 	</body>
 </html>
