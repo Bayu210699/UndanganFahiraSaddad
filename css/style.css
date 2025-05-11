@@ -1911,67 +1911,46 @@ button:hover, .btn:hover {
 #event-schedule .event-wrap li strong {
     color: #F14E95;
 }
-/* Styling untuk .atm-card */
 .atm-card {
   position: relative;
+  width: 100%;
+  max-width: 340px;
+  height: 200px;
+  margin: 0 auto 30px;
   background-size: cover;
   background-position: center;
-  height: 200px; /* Sesuaikan tinggi gambar */
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%; /* Menyesuaikan lebar kartu agar responsif */
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  color: white;
+  overflow: hidden;
 }
 
-/* Nama Bank (di kiri atas) */
+.atm-card h3 {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  font-size: 16px;
+  margin: 0;
+  color: white;
+}
+
+.atm-card .norek {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
 .atm-card .nama {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-}
-
-/* Nama Pemilik (di kiri bawah) */
-.atm-card .bank {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 16px;
-  color: #fff;
-}
-
-/* Nomor Rekening (di tengah) */
-.atm-card .norek {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* Responsif untuk perangkat dengan lebar max 768px (misalnya HP) */
-@media (max-width: 768px) {
-  /* Menyesuaikan ukuran gambar agar responsif */
-  .atm-card {
-    height: auto; /* Tinggi otomatis sesuai ukuran konten */
-    background-size: contain; /* Agar gambar tetap proporsional */
-    background-position: center; /* Memastikan gambar tidak terpotong */
-  }
-  
-  .atm-card .norek {
-    font-size: 18px; /* Menurunkan ukuran font agar sesuai layar kecil */
-  }
-
-  /* Menyesuaikan kolom agar kartu tampil responsif */
-  .col-md-6 {
-    width: 100%; /* Membuat kolom kartu mengambil lebar penuh */
-    margin-bottom: 20px; /* Memberikan jarak antar kolom */
-  }
+  bottom: 15px;
+  right: 20px;
+  font-size: 14px;
+  margin: 0;
+  color: white;
 }
