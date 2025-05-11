@@ -155,7 +155,6 @@
     position: absolute;
     width: 30px;
     height: 30px;
-    background-image: url('images/flower.png'); /* ganti dengan gambar kelopak */
     background-size: contain;
     background-repeat: no-repeat;
     animation: flowerFall 10s linear infinite;
@@ -789,7 +788,7 @@
     document.getElementById('undangan-main').style.display = 'block';
     // Scroll ke atas
     window.scrollTo({ top: 0, behavior: 'smooth' });
-   setInterval(createFlower, 300);
+    setInterval(createFlower, 300);
 
     // Play audio
     const music = document.getElementById('bg-music');
