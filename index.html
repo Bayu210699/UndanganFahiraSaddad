@@ -769,14 +769,28 @@
     const container = document.getElementById("flower-container");
     const flower = document.createElement("div");
     flower.classList.add("flower");
+
+    // Pilih gambar bunga secara acak
+    const flowerImages = [
+      'images/flower1.png',
+      'images/flower2.png',
+      'images/flower3.png',
+      'images/flower4.png',
+      'images/flower5.png'
+    ];
+    const randomFlower = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+    flower.style.backgroundImage = `url('${randomFlower}')`;
+
+    // Tentukan posisi acak dan durasi animasi
     flower.style.left = Math.random() * 100 + "vw";
-    flower.style.animationDuration = 5 + Math.random() * 5 + "s"; // durasi random
+    flower.style.animationDuration = 5 + Math.random() * 5 + "s"; // Durasi acak
 
     container.appendChild(flower);
 
+    // Hapus bunga setelah 10 detik
     setTimeout(() => {
       flower.remove();
-    }, 10000); // hapus setelah 10 detik
+    }, 10000); // Hapus bunga setelah 10 detik
   }
 
 
