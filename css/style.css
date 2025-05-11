@@ -1927,31 +1927,34 @@ button:hover, .btn:hover {
   background-color: #ccc; /* Fallback warna latar belakang jika gambar gagal */
 }
 
+/* Nama Bank (Kiri Atas) */
 .atm-card .bank-name {
   position: absolute;
   top: 10px;
   left: 20px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   margin: 0;
   color: white;
 }
 
+/* Nama Pemilik Rekening (Kanan Atas) */
 .atm-card .account-name {
   position: absolute;
-  bottom: 15px;
-  left: 20px;
+  top: 10px;
+  right: 20px;
   font-size: 14px;
   margin: 0;
   color: white;
 }
 
+/* Nomor Rekening (Tengah, lebih besar) */
 .atm-card .account-number {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
+  font-size: 24px;  /* Ukuran font lebih besar */
   font-weight: bold;
   margin: 0;
   color: white;
