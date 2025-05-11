@@ -1915,39 +1915,46 @@ button:hover, .btn:hover {
 .atm-card {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  height: 250px;
+  max-width: 320px;
+  height: 200px;
+  margin: 0 auto 30px;
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
   border-radius: 15px;
-  margin: 20px auto;
-  color: white;
-  font-family: sans-serif;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   padding: 20px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.atm-card .nama {
+.atm-card h3 {
   position: absolute;
-  top: 20px;
+  bottom: 15px;
   left: 20px;
+  margin: 0;
   font-size: 16px;
   font-weight: bold;
+  color: white;
 }
 
-.atm-card .bank {
+.atm-card p:nth-of-type(1) {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-size: 14px;
-  font-weight: 600;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
 }
 
-.atm-card .norek {
+.atm-card p:nth-of-type(2) {
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
   right: 20px;
+  margin: 0;
   font-size: 14px;
-  text-align: right;
+  color: white;
 }
