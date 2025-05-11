@@ -1924,7 +1924,7 @@ button:hover, .btn:hover {
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   color: white;
   overflow: hidden;
-  background-color: #ccc; /* Fallback warna latar belakang jika gambar gagal */
+  background-color: #fff; /* Fallback warna latar belakang jika gambar gagal */
 }
 
 /* Nama Bank (Kiri Atas) */
