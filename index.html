@@ -139,37 +139,40 @@
     color: #7c2d12;
   }
 </style>
-<style>
-  #sparkle-effect {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 9999;
-  }
-
-  .sparkle {
-    position: absolute;
-    width: 4px;
-    height: 20px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
-    animation: fall 2s linear infinite;
-  }
-
-  @keyframes fall {
-    0% {
-      transform: translateY(-100px) rotate(0deg);
-      opacity: 1;
+<head>
+  <style>
+    #sparkle-effect {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
     }
-    100% {
-      transform: translateY(100vh) rotate(360deg);
-      opacity: 0;
+
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 20px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
+      animation: fall 2s linear infinite;
     }
-  }
-</style>
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
 
 </head>
 	<body>
@@ -212,7 +215,7 @@
 			
 		</div>
 	</nav>-->
-<div id="sparkle-effect"></div>
+ <div id="sparkle-effect"></div>
 
 	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/gallery-3.jpeg);" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
@@ -763,26 +766,32 @@
   });
 </script>
 <script>
-  function bukaUndangan() {
-    document.getElementById('fh5co-header').style.display = 'none';
-    document.getElementById('undangan-main').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // Play music saat undangan dibuka
-    const music = document.getElementById('bg-music');
-    if (music) {
-      music.play();
-	    // Buat sparkle effect
-for (let i = 0; i < 30; i++) {
-  const sparkle = document.createElement('div');
-  sparkle.classList.add('sparkle');
-  sparkle.style.left = `${Math.random() * 100}%`;
-  sparkle.style.animationDelay = `${Math.random() * 2}s`;
-  sparkle.style.opacity = Math.random();
-  document.getElementById('sparkle-effect').appendChild(sparkle);
-}
-
+  // Fungsi untuk menambahkan sparkle
+  function addSparkles() {
+    const container = document.getElementById('sparkle-effect');
+    for (let i = 0; i < 30; i++) {
+      let sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = `${Math.random() * 2}s`;
+      container.appendChild(sparkle);
     }
+  }
+
+  // Fungsi untuk membuka undangan dan menampilkan sparkles serta memutar musik
+  function bukaUndangan() {
+    // Sembunyikan bagian header
+    document.getElementById('fh5co-header').style.display = 'none';
+    // Tampilkan bagian undangan utama
+    document.getElementById('undangan-main').style.display = 'block';
+    // Scroll ke atas
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Tambahkan efek sparkle
+    addSparkles();
+
+    // Play audio
+    const music = document.getElementById('bg-music');
+    music.play();
   }
 
   // Tampilkan nama tamu dari URL
@@ -797,8 +806,8 @@ for (let i = 0; i < 30; i++) {
       `;
     }
   });
-
 </script>
+
 
 <script>
   document.getElementById("attendance-form").addEventListener("submit", function(e) {
