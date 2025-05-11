@@ -148,30 +148,26 @@
     height: 100%;
     pointer-events: none;
     z-index: 9999;
-    overflow: hidden;
   }
 
-  .glow {
+  .particle {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     background-color: #fff;
     border-radius: 50%;
-    animation: glow 1.5s infinite;
+    opacity: 0;
+    animation: fly 4s linear infinite;
   }
 
-  @keyframes glow {
+  @keyframes fly {
     0% {
-      transform: scale(0.5);
-      opacity: 0.7;
-    }
-    50% {
-      transform: scale(1.5);
+      transform: translate(0, 0);
       opacity: 1;
     }
     100% {
-      transform: scale(0.5);
-      opacity: 0.7;
+      transform: translate(var(--x), var(--y));
+      opacity: 0;
     }
   }
 </style>
@@ -768,15 +764,16 @@
   });
 </script>
 <script>
-  function addGlows() {
+   function addParticles() {
     const container = document.getElementById('sparkle-effect');
-    for (let i = 0; i < 20; i++) {
-      let glow = document.createElement('div');
-      glow.classList.add('glow');
-      glow.style.left = Math.random() * 100 + '%';
-      glow.style.top = Math.random() * 100 + '%';
-      glow.style.animationDelay = `${Math.random() * 2}s`;
-      container.appendChild(glow);
+    for (let i = 0; i < 30; i++) {
+      let particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.setProperty('--x', (Math.random() * 500 - 250) + 'px');
+      particle.style.setProperty('--y', (Math.random() * 500 - 250) + 'px');
+      container.appendChild(particle);
     }
   }
 
@@ -789,7 +786,7 @@
     // Scroll ke atas
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // Tambahkan efek Glow
-    addGlows(); 
+    addParticles(); 
 
     // Play audio
     const music = document.getElementById('bg-music');
