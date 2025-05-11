@@ -779,7 +779,7 @@
       flower.remove();
     }, 10000); // hapus setelah 10 detik
   }
-setInterval(createFlower, 300);
+
 
   // Fungsi untuk membuka undangan dan menampilkan sparkles serta memutar musik
   function bukaUndangan() {
@@ -789,7 +789,7 @@ setInterval(createFlower, 300);
     document.getElementById('undangan-main').style.display = 'block';
     // Scroll ke atas
     window.scrollTo({ top: 0, behavior: 'smooth' });
-   
+   setInterval(createFlower, 300);
 
     // Play audio
     const music = document.getElementById('bg-music');
