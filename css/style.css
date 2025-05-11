@@ -1914,43 +1914,38 @@ button:hover, .btn:hover {
 /* Styling untuk .atm-card */
 .atm-card {
   position: relative;
-  width: 80%;  /* Lebar kartu disesuaikan lebih besar */
-  height: 300px;  /* Tinggi kartu ditingkatkan */
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
   background-size: cover;
   background-position: center;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  margin: 20px auto;
   color: white;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto; /* Agar kartu terpusat */
+  font-family: sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* Posisi teks di dalam kartu */
-.atm-card h3 {
+.atm-card .nama {
   position: absolute;
-  top: 15px;  /* Sedikit lebih tinggi untuk jarak lebih lebar */
+  top: 20px;
   left: 20px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
 }
 
-.atm-card p {
+.atm-card .bank {
   position: absolute;
-  bottom: 20px;  /* Memberikan jarak lebih lebar di bagian bawah */
+  bottom: 20px;
   left: 20px;
-  font-size: 18px;
-  margin: 5px 0;
+  font-size: 16px;
 }
 
-/* Responsif untuk layar kecil */
-@media (max-width: 767px) {
-  .atm-card {
-    width: 90%;  /* Kartu tetap besar pada perangkat mobile */
-    height: 250px;  /* Ukuran tinggi kartu di perangkat mobile */
-  }
-  .atm-card h3, .atm-card p {
-    font-size: 16px;  /* Mengurangi ukuran teks sedikit di perangkat kecil */
-  }
+.atm-card .norek {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 18px;
+  text-align: right;
 }
