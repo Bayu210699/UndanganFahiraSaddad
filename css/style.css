@@ -1911,22 +1911,24 @@ button:hover, .btn:hover {
 #event-schedule .event-wrap li strong {
     color: #F14E95;
 }
+/* Styling untuk .atm-card */
 .atm-card {
   position: relative;
-  width: 250px;
-  height: 150px;
+  width: 100%;
+  height: 200px;
   background-size: cover;
   background-position: center;
-  margin: 0 auto;
   padding: 20px;
-  color: white;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  margin-bottom: 20px;
 }
 
 .atm-card h3 {
   position: absolute;
   top: 10px;
-  left: 10px;
+  left: 20px;
   font-size: 18px;
   font-weight: bold;
 }
@@ -1934,7 +1936,17 @@ button:hover, .btn:hover {
 .atm-card p {
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  left: 20px;
   font-size: 14px;
+  margin: 5px 0;
 }
 
+/* Responsif untuk layar kecil */
+@media (max-width: 767px) {
+  .atm-card {
+    height: 250px; /* Sesuaikan tinggi kartu */
+  }
+  .atm-card h3, .atm-card p {
+    font-size: 14px;
+  }
+}
