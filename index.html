@@ -140,37 +140,39 @@
   }
 </style>
 <style>
-  #sparkle-effect {
+  #flower-container {
     position: fixed;
     top: 0;
     left: 0;
+    pointer-events: none;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    overflow: hidden;
     z-index: 9999;
   }
 
-  .shooting-star {
+  .flower {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    animation: shoot 3s ease-out infinite;
+    width: 30px;
+    height: 30px;
+    background-image: url('images/flower.png'); /* ganti dengan gambar kelopak */
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: flowerFall 10s linear infinite;
   }
 
-  @keyframes shoot {
+  @keyframes flowerFall {
     0% {
-      transform: translate(0, 0);
+      transform: translateY(-50px) rotate(0deg);
       opacity: 1;
     }
     100% {
-      transform: translate(500px, 500px);
+      transform: translateY(100vh) rotate(360deg);
       opacity: 0;
     }
   }
 </style>
+
 
 </head>
 	<body>
@@ -213,7 +215,7 @@
 			
 		</div>
 	</nav>-->
- <div id="sparkle-effect"></div>
+ <div id="flower-container"></div>
 
 	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/gallery-3.jpeg);" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
@@ -764,16 +766,20 @@
   });
 </script>
 <script>
-   function addShootingStars() {
-    const container = document.getElementById('sparkle-effect');
-    for (let i = 0; i < 10; i++) {
-      let star = document.createElement('div');
-      star.classList.add('shooting-star');
-      star.style.left = Math.random() * 100 + '%';
-      star.style.top = Math.random() * 100 + '%';
-      container.appendChild(star);
-    }
+  function createFlower() {
+    const container = document.getElementById("flower-container");
+    const flower = document.createElement("div");
+    flower.classList.add("flower");
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = 5 + Math.random() * 5 + "s"; // durasi random
+
+    container.appendChild(flower);
+
+    setTimeout(() => {
+      flower.remove();
+    }, 10000); // hapus setelah 10 detik
   }
+setInterval(createFlower, 300);
 
   // Fungsi untuk membuka undangan dan menampilkan sparkles serta memutar musik
   function bukaUndangan() {
@@ -783,8 +789,7 @@
     document.getElementById('undangan-main').style.display = 'block';
     // Scroll ke atas
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Tambahkan efek Glow
-     addShootingStars(); 
+   
 
     // Play audio
     const music = document.getElementById('bg-music');
