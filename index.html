@@ -200,6 +200,7 @@
       </div>
     </div>
   </div>
+<audio id="bg-music" src="audio/Wedding.mp3" loop></audio>
 </header>
 
 <!-- Konten utama undangan -->
@@ -766,6 +767,18 @@
     }
   });
 </script>
+		<script>
+  const music = document.getElementById("bg-music");
+
+  function bukaUndangan() {
+    // Scroll atau buka section
+    document.getElementById("fh5co-started").scrollIntoView({ behavior: "smooth" });
+
+    // Play music
+    music.play();
+  }
+</script>
+
 
 	</body>
 </html>
