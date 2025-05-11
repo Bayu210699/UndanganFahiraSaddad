@@ -1923,8 +1923,10 @@ button:hover, .btn:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 100%; /* Menyesuaikan lebar kartu agar responsif */
 }
 
+/* Nama Bank (di kiri atas) */
 .atm-card .nama {
   position: absolute;
   top: 10px;
@@ -1934,6 +1936,7 @@ button:hover, .btn:hover {
   color: #fff;
 }
 
+/* Nama Pemilik (di kiri bawah) */
 .atm-card .bank {
   position: absolute;
   bottom: 10px;
@@ -1942,6 +1945,7 @@ button:hover, .btn:hover {
   color: #fff;
 }
 
+/* Nomor Rekening (di tengah) */
 .atm-card .norek {
   font-size: 24px;
   font-weight: bold;
@@ -1950,4 +1954,22 @@ button:hover, .btn:hover {
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* Responsif untuk perangkat dengan lebar max 768px (misalnya HP) */
+@media (max-width: 768px) {
+  /* Menyesuaikan ukuran gambar agar responsif */
+  .atm-card {
+    height: auto; /* Tinggi otomatis sesuai ukuran konten */
+    background-size: contain; /* Agar gambar tetap proporsional */
+  }
+  
+  .atm-card .norek {
+    font-size: 20px; /* Menurunkan ukuran font agar sesuai layar kecil */
+  }
+
+  .col-md-6 {
+    width: 100%; /* Membuat kolom kartu mengambil lebar penuh */
+    margin-bottom: 20px; /* Memberikan jarak antar kolom */
+  }
 }
