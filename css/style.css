@@ -1962,12 +1962,14 @@ button:hover, .btn:hover {
   .atm-card {
     height: auto; /* Tinggi otomatis sesuai ukuran konten */
     background-size: contain; /* Agar gambar tetap proporsional */
+    background-position: center; /* Memastikan gambar tidak terpotong */
   }
   
   .atm-card .norek {
-    font-size: 20px; /* Menurunkan ukuran font agar sesuai layar kecil */
+    font-size: 18px; /* Menurunkan ukuran font agar sesuai layar kecil */
   }
 
+  /* Menyesuaikan kolom agar kartu tampil responsif */
   .col-md-6 {
     width: 100%; /* Membuat kolom kartu mengambil lebar penuh */
     margin-bottom: 20px; /* Memberikan jarak antar kolom */
