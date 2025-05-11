@@ -150,23 +150,23 @@
     z-index: 9999;
   }
 
-  .particle {
+  .shooting-star {
     position: absolute;
-    width: 5px;
-    height: 5px;
+    width: 10px;
+    height: 10px;
     background-color: #fff;
     border-radius: 50%;
-    opacity: 0;
-    animation: fly 4s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    animation: shoot 3s ease-out infinite;
   }
 
-  @keyframes fly {
+  @keyframes shoot {
     0% {
       transform: translate(0, 0);
       opacity: 1;
     }
     100% {
-      transform: translate(var(--x), var(--y));
+      transform: translate(500px, 500px);
       opacity: 0;
     }
   }
@@ -764,16 +764,14 @@
   });
 </script>
 <script>
-   function addParticles() {
+   function addShootingStars() {
     const container = document.getElementById('sparkle-effect');
-    for (let i = 0; i < 30; i++) {
-      let particle = document.createElement('div');
-      particle.classList.add('particle');
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.setProperty('--x', (Math.random() * 500 - 250) + 'px');
-      particle.style.setProperty('--y', (Math.random() * 500 - 250) + 'px');
-      container.appendChild(particle);
+    for (let i = 0; i < 10; i++) {
+      let star = document.createElement('div');
+      star.classList.add('shooting-star');
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      container.appendChild(star);
     }
   }
 
@@ -786,7 +784,7 @@
     // Scroll ke atas
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // Tambahkan efek Glow
-    addParticles(); 
+     addShootingStars(); 
 
     // Play audio
     const music = document.getElementById('bg-music');
