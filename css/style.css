@@ -1925,13 +1925,14 @@ button:hover, .btn:hover {
   color: white;
   font-family: sans-serif;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  padding: 20px;
 }
 
 .atm-card .nama {
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -1939,13 +1940,14 @@ button:hover, .btn:hover {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .atm-card .norek {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  font-size: 18px;
+  font-size: 14px;
   text-align: right;
 }
